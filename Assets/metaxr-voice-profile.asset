@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
+  m_Name: metaxr-voice-profile
+  m_EditorClassIdentifier: 
+  _clientAccessToken: HOKEABS7HPIQVSRSVWRPTTV75TQJ5QBP
+  _appInfo:
+    name: Built-in Models
+    id: voiceSDK_en
+    lang: en
+    isPrivate: 0
+    createdAt: 
+    trainingStatus: 0
+    lastTrainDuration: 0
+    lastTrainedAt: 
+    nextTrainAt: 
+    intents: []
+    entities: []
+    traits: []
+    versionTags: []
+    voices: []
+    composer:
+      canvases: []
+    characters: []
+  _configurationId: 
+  timeoutMS: 10000
+  endpointConfiguration:
+    _uriScheme: 
+    _authority: 
+    _port: 0
+    _witApiVersion: 
+    _message: 
+    _speech: 
+    _dictation: 
+    _synthesize: 
+    _event: 
+    _converse: 
+  isDemoOnly: 0
+  useConduit: 1
+  _manifestLocalPath: ConduitManifest-41388312-1e23-46e4-b7f3-7c67b4a61ace.json
+  excludedAssemblies:
+  - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  relaxedResolution: 0
