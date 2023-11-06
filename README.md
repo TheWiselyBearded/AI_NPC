@@ -162,7 +162,7 @@ These components and modules work together to create a lifelike and engaging AI 
 
 The MIT License (MIT)
 
-Copyright © 2022 Alireza Bahremand, Mason Manetta, Jessica Lai, Richard C. Gerkin, Robert LiKamWa
+Copyright © 2023 Alireza Bahremand
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
