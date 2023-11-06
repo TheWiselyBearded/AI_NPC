@@ -15,6 +15,7 @@ ChatGPT API and Eleven Labs API provided by RageAgainstThePixel. Please check ou
 
 Infrequently, I will update the repository along with this roadmap. Please feel free to contirbute/make suggestions!
 Here are some key milestones planned:
+- **UPM Support**: Update repository/framework so that users can easily install and manage using Unity Package Manager (UPM).
 
 - **Bug Fixes**: There are some bugs I've found during testing, such as intermittently freezing up when interfacing with Eleven Labs API. 
 
@@ -153,4 +154,37 @@ The `MotionControllerModule` handles animation and motion control for the NPC. H
 - It sets up animations for introduction and transitions between conversation stages.
 
 These components and modules work together to create a lifelike and engaging AI NPC experience in your Unity project.
+
+## License
+<!-- Released under the [MIT license](LICENSE). -->
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+The MIT License (MIT)
+
+Copyright © 2022 Alireza Bahremand, Mason Manetta, Jessica Lai, Richard C. Gerkin, Robert LiKamWa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+<!-- ### License
+
+Copyright © 2022, [Alireza Bahremand](https://github.com/TheWiselyBearded).
+Released under the [MIT license](LICENSE). -->
 
