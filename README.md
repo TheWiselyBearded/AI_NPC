@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-The AI NPC Framework for Unity is a powerful, simple tool allowing  developers to effortlessly integrate AI NPC characters into their games. These NPCs can engage in dynamic, real-time conversations with players, demonstrating the ability to "listen," "think," and "speak" with response times of less than 10 seconds. Leveraging cutting-edge technologies, including the Meta Voice Dictation SDK, ChatGPT API, and Eleven Labs API, this framework provides a seamless and immersive experience for players.
+The AI NPC Framework for Unity (2022.3.10) is a powerful, malleable, and simple tool allowing developers to effortlessly integrate AI NPC characters into their games. These NPCs can engage in dynamic, real-time conversations with players, demonstrating the ability to "listen," "think," and "speak" with response times of less than 10 seconds. Leveraging cutting-edge technologies, including the [Meta Voice Dictation SDK](https://developer.oculus.com/documentation/unity/voice-sdk-overview/), [ChatGPT API](https://github.com/RageAgainstThePixel/com.openai.unity), and [Eleven Labs API](https://github.com/RageAgainstThePixel/com.rest.elevenlabs), this framework provides a seamless and immersive experience for players.
 
-ChatGPT API and Eleven Labs API provided by RageAgainstThePixel. Please check out and support their work here.
+Lip Sync provided by [Meta Lip Sync SDK](https://developer.oculus.com/documentation/unity/audio-ovrlipsync-unity/). Avatars are created with [Avaturn](https://avaturn.me/) and [Ready Player Me](https://readyplayer.me/) (tested with avatars downloaded from sketchfab and rigged with NVIDIA Omniverse as well). ChatGPT API and Eleven Labs API provided by [RageAgainstThePixel](https://github.com/RageAgainstThePixel). Please check out and support their work [here](https://www.patreon.com/RageAgainstThePixel).
 
 ## Scenes
 
