@@ -13,6 +13,8 @@ public class NPCController : MonoBehaviour
     [SerializeField] public SpeakerModule speakerModule;
     [SerializeField] public MotionControllerModule motionControllerModule;
 
+    public KeywordEvent[] keywordEvents;
+
     // Initialize modules and other variables
     void Awake() {
         listenerModule = GetComponent<ListenerModule>();
@@ -90,8 +92,14 @@ public class NPCController : MonoBehaviour
     /// simple demonstration of keyword parsing. 
     /// TODO: add submodule for searching against list of keywords and mapping to audio clips/
     private bool IsKeyword(string input) {
-        if (input.Contains("goodbye")) return true;
-        else return false;
+        foreach (KeywordEvent k in keywordEvents) {
+            if (input.Contains(k.Keyword)) {
+                Debug.Log($"Keyword {k.Keyword}");
+                k.keywordEvent.Invoke();
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -100,4 +108,11 @@ public class NPCController : MonoBehaviour
     private void RequestUserToRepeat() {
         speakerModule.AudioManager.PlayTimeoutClip();
     }
+}
+
+
+[System.Serializable]
+public class KeywordEvent {
+    public string Keyword;
+    public UnityEngine.Events.UnityEvent keywordEvent;
 }
