@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using OpenAI;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,20 +12,31 @@ public class NPCController : MonoBehaviour
     [SerializeField] public ListenerModule listenerModule;
     [SerializeField] public ThinkerModule thinkerModule;
     [SerializeField] public SpeakerModule speakerModule;
+    [SerializeField] public VisionModule visionModule;
     [SerializeField] public MotionControllerModule motionControllerModule;
 
     public KeywordEvent[] keywordEvents;
+
+    // open ai api request variables
+    private OpenAIClient openAI;
+    private string userInput;
 
     // Initialize modules and other variables
     void Awake() {
         listenerModule = GetComponent<ListenerModule>();
         thinkerModule = GetComponent<ThinkerModule>();
         speakerModule = GetComponent<SpeakerModule>();
+        visionModule = GetComponent<VisionModule>();
         motionControllerModule = GetComponent<MotionControllerModule>();
+
+        thinkerModule.SetClientID(openAI);
+        visionModule.SetClientID(openAI);
+        visionModule.SetPersonality(thinkerModule.Personality);
 
         // Set up event listeners for handling user input
         listenerModule.OnUserInputReceived += HandleUserInput;
         thinkerModule.OnChatGPTInputReceived += HandleChatResponse;
+        visionModule.OnChatGPTVisionInputReceived += HandleChatResponse;
         speakerModule.OnRequestCanceled += OnSpeakerModuleCancel;
         speakerModule.AudioManager.OnTalkingComplete += BeginListening;
 
@@ -36,6 +48,7 @@ public class NPCController : MonoBehaviour
     private void OnDestroy() {
         listenerModule.OnUserInputReceived -= HandleUserInput;
         thinkerModule.OnChatGPTInputReceived -= HandleChatResponse;
+        visionModule.OnChatGPTVisionInputReceived -= HandleChatResponse;
         speakerModule.OnRequestCanceled -= OnSpeakerModuleCancel;
         speakerModule.AudioManager.OnTalkingComplete -= BeginListening;
     }
@@ -108,6 +121,8 @@ public class NPCController : MonoBehaviour
     private void RequestUserToRepeat() {
         speakerModule.AudioManager.PlayTimeoutClip();
     }
+
+    public void SetUserInputToVisionModule() => visionModule.ExternalSetImageGeneratePrompt(userInput);
 }
 
 

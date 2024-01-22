@@ -36,12 +36,13 @@ public class ThinkerModule : MonoBehaviour
 
     
     private void Init() {
-        lifetimeCancellationTokenSource = new CancellationTokenSource();
-        openAI = new OpenAIClient();
+        lifetimeCancellationTokenSource = new CancellationTokenSource();        
 
         if (Personality == null) chatMessages.Add(new Message(Role.System, "You are a helpful assistant."));
         else chatMessages.Add(new Message(Role.System, $"Pretend you are {Personality.Name}. Please respond to all proceeding messages as this character in tune with this personality description {Personality.Description}. "));
     }
+
+    public void SetClientID(OpenAIClient client) => openAI = client;
 
     /// <summary>
     /// entry point from other script to submit api request

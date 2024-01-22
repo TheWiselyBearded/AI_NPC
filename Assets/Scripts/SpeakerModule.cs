@@ -56,8 +56,8 @@ public class SpeakerModule : MonoBehaviour
     async Task RequestAudioFull(string result) {
         //var voice = (await client.VoicesEndpoint.GetVoiceAsync(selectedID)); // (await client.VoicesEndpoint.GetAllVoicesAsync()).FirstOrDefault();
         var _vs = await client.VoicesEndpoint.GetVoiceSettingsAsync(voice.Id);
-        var (clipPath, audioClip) = await client.TextToSpeechEndpoint.TextToSpeechAsync(result, voice, _vs);
-        AudioManager.AddAudioClip(audioClip);
+        var voiceClip = await client.TextToSpeechEndpoint.TextToSpeechAsync(result, voice, _vs);
+        AudioManager.AddAudioClip(voiceClip.AudioClip);
         OnBeginSpeaking?.Invoke();
     }
 
@@ -66,7 +66,7 @@ public class SpeakerModule : MonoBehaviour
         var stopwatch = new Stopwatch();
         var sentences = SplitInputText(result).ToList();
         var _vs = await client.VoicesEndpoint.GetVoiceSettingsAsync(voice.Id);
-        var tasks = new List<Task<System.Tuple<string, AudioClip>>>();
+        var tasks = new List<Task<VoiceClip>>();
         foreach (string sentence in sentences) {
             stopwatch.Start();
             var task = client.TextToSpeechEndpoint.TextToSpeechAsync(sentence, voice, _vs, m)
@@ -94,9 +94,9 @@ public class SpeakerModule : MonoBehaviour
 
         var results = await Task.WhenAll(tasks);
 
-        foreach (var (clipPath, audioClip) in results) {
-            audioOutputPaths.Add(clipPath);
-            AudioManager.AddAudioClip(audioClip);
+        foreach (var voiceClip in results) {
+            audioOutputPaths.Add(voiceClip.CachedPath);
+            AudioManager.AddAudioClip(voiceClip.AudioClip);
             //Debug.Log($"CLIP {clipPath} length {audioClip.length}");
         }
         OnBeginSpeaking?.Invoke();
